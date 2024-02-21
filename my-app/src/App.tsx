@@ -4,7 +4,8 @@ export function App() {
   //campo de troca de mensagens (conversa entre o chat e o cliente)
   //campo para digitação das mensagens (campo para digitação do usuario)
   <div>
-    
-  </div>
+
+ 
+</div>
   )
 }
