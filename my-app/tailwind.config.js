@@ -8,6 +8,9 @@ export default {
       extend: {
         fontFamily:{
           sans: ['Inter','sans-serif']
+        },
+        backgroundImage: {
+          'wats': "url('/public/fundo.jpg')",
         }
       }
   },
