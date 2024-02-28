@@ -1,6 +1,3 @@
-interface mensagemPergunta{}
-
-
 export function NewQuestion(){
     return (
         <div className="grid relative justify-items-start">
