@@ -2,7 +2,7 @@ import { NewQuestion } from "./components/question";
 import { NewResponse } from "./components/response";
 
 export function App() {
-  
+
   interface Title{
     id: number,
     name: string,
@@ -10,12 +10,7 @@ export function App() {
     questions:[],
   }
 
-  return (
-  //painel de tras
-  //linha de cima(foto da atendente e nome da atendente)  
-  //campo de troca de mensagens (conversa entre o chat e o cliente)
-  //campo para digitação das mensagens (campo para digitação do usuario)
-  // linhas impares pra pergunta e linha pares pra resposta 
+  return ( 
   <>
   <div className= "bg-slate-900 text-left flex flex-row items-stretch gap-2">    
     <div className="basis-1/4 text-white p-5">
