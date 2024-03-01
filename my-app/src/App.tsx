@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NewQuestion } from "./components/question";
 import { NewResponse } from "./components/response";
 
@@ -9,6 +10,27 @@ export function App() {
     responses:[],
     questions:[],
   }
+/*
+const [search, setSearch ] = useState('')
+
+const [chat, setChat] = useState<Chat[]>(() => {
+
+  const notesOnStorage = 
+
+  if (notesOnStorage){
+
+    return JSON.parse(notesOnStorage)
+
+  }
+    return []
+})
+function addResponde(){
+
+}
+
+function searchTitle(){
+
+}*/
 
   return ( 
   <>
@@ -19,31 +41,7 @@ export function App() {
     <div className="p-10 basis-1/2 text-white font-bold text-left size-10 text-3xl">Atendente Virtual</div> 
   </div>
 <div className="w-full overflow-y-scroll relative h-screen">
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-    <NewQuestion/>
-    <NewResponse/>
-
+    123
 </div>
   <div className="rounded-lg flex flex-row w-full items-stretch gap-2 bg-transparent bottom-0 h-20 relative">
     <input type="text" 
