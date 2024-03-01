@@ -10,7 +10,7 @@ export default {
           sans: ['Inter','sans-serif']
         },
         backgroundImage: {
-          'wats': "url('/public/fundo.jpg')",
+          'wats': "url('/fundo.jpg')",
         }
       }
   },
