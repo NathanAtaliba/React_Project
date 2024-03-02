@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const titleSchema = new Schema({
-    id:{
+    _id:{
         type: Number,
         required: true,    
     },
@@ -18,6 +18,6 @@ const titleSchema = new Schema({
         required: true,
     }
     
-},{versionKey: false});
+},{versionKey: false, _id: false});
 
 export default mongoose.model('Title', titleSchema);
