@@ -1,23 +1,19 @@
 import mongoose, { Schema } from 'mongoose';
 
 const titleSchema = new Schema({
-    _id:{
-        type: Number,
-        required: true,    
-    },
     name: {
         type: String,
         required: true,
     },
-    response:{
+    responses:{
         type: Array,
         required: true,
     },
-    question:{
+    questions:{
         type: Array,
         required: true,
     }
     
-},{versionKey: false, _id: false});
+},{versionKey: false});
 
 export default mongoose.model('Title', titleSchema);
