@@ -1,19 +1,19 @@
 import mongoose, { Schema } from 'mongoose';
 
-const titleSchema = new Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true,
     },
-    responses:{
-        type: Array,
+    email:{
+        type: String,
         required: true,
     },
-    questions:{
-        type: Array,
+    password:{
+        type: String,
         required: true,
     }
     
 },{versionKey: false});
 
-export default mongoose.model('Title', titleSchema);
+export default mongoose.model('User', userSchema);
