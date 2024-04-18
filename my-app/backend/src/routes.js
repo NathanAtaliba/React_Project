@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { getChat, createChat, deleteChat, updateChat, getResponse } from './controllers/chatController.js';
+import { getChats, createChat, deleteChat, updateChat, getResponse } from './controllers/chatController.js';
 import { getUser, createUser, deleteUser, updateUser } from './controllers/userController.js';
 
 const routes = Router();
 
 //ROUTES Chat
-routes.get('/chat', getChat);
+routes.post('/chats/user', getChats);
 routes.post('/chat/create', createChat);
 routes.delete('/chat/:id', deleteChat);
 routes.put('/chat/:id', updateChat);

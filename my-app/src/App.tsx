@@ -1,41 +1,15 @@
 import { useState } from "react";
 import { NewQuestion } from "./components/question";
 import { NewResponse } from "./components/response";
-
+import List from './components/chatList';
 export function App() {
-
-  const Question = () =>{
-    
-  }
-
-/*
-const [search, setSearch ] = useState('')
-
-const [chat, setChat] = useState<Chat[]>(() => {
-
-  const notesOnStorage = 
-
-  if (notesOnStorage){
-
-    return JSON.parse(notesOnStorage)
-
-  }
-    return []
-})
-function addResponde(){
-
-}
-
-function searchTitle(){
-
-}*/
 
 return ( 
 <>
 <div className="h-screen w-full overflow-y-scroll relative">
 
   <div className="bg-slate-900 flex flex-col w-1/12 h-screen top-0 left-0 rounded-lg absolute">
-    TELA DA ESQUERDA
+    <List />
   </div>
 
 <div className="h-screen w-11/12 flex flex-col absolute top-0 right-0">

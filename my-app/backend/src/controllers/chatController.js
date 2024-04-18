@@ -7,9 +7,11 @@ dotenv.config();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-async function getChat (req, res){
-    const titles = await Chat.find();
-    return res.status(200).send(titles);
+async function getChats (req, res){
+    console.log("post")
+    const idUser = req.body.idUser 
+    const chats = await Chat.find({ idUser: { $eq: idUser } });
+    return res.status(200).send(chats);
 }
 
 async function createChat( req, res ){
@@ -54,4 +56,4 @@ async function getResponse(req, res){
 
 
 
-export { getChat, createChat, deleteChat, updateChat, getResponse};
+export { getChats, createChat, deleteChat, updateChat, getResponse};
