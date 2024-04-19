@@ -4,15 +4,21 @@ import ChatItem from './chatItem';
 import { AddNewItem } from './addItem';
 
 interface Chat {
-    _id: string,
-    name: string,
-    questions: [],
-    responses: []
+  _id: string;
+  name: string;
+  idUser: string;
+  responses: string[];
+  questions: string[];
+}
+  
+  interface ListProps {
+    onSelectChat: (chatId: string) => void;
   }
-  
-  const List: React.FC = () => {
+
+  const List: React.FC<ListProps> = ({ onSelectChat }) => {
     const [chats, setChats] = useState<Chat[]>([]);
-  
+    const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
+
     useEffect(() => {
       fetchChats();  
     }, []);
@@ -26,13 +32,26 @@ interface Chat {
       }
     };
 
+     
     const handleAddChat = async () => {
-
-        await fetchChats();
+      await fetchChats();
     };
     
     const handleRemoveChat = async () => {
       await fetchChats();
+    };
+  
+    const handleSelectChat = (chatId: string) => {
+      setSelectedChatId(chatId);
+      onSelectChat(chatId); 
+    };
+  
+    const handleFocus = () => {
+      console.log('ChatItem focado');
+    };
+  
+    const handleBlur = () => {
+      console.log('ChatItem perdeu foco');
     };
 
   return (
@@ -40,7 +59,14 @@ interface Chat {
       <AddNewItem onAdd={handleAddChat} />
 
       {chats.map(chat => (
-        <ChatItem key={chat._id} chat={chat} onRemove={handleRemoveChat} />
+        <ChatItem key={chat._id} 
+        chat={chat} 
+        onRemove={handleRemoveChat}
+        onSelect={handleSelectChat}
+        selected={chat._id === selectedChatId}
+        onFocus={handleFocus}
+        onBlur={handleBlur} 
+         />
       ))}
     </div>
   );

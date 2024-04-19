@@ -9,14 +9,12 @@ const chatSchema = new Schema({
         type: String,
         required:true,
     },
-    responses:{
-        type: Array,
-        required: true,
-    },
-    questions:{
-        type: Array,
-        required: true,
-    }
+    messages:[
+        {
+            question: String,
+            response: String
+        }
+    ]
     
 },{versionKey: false});
 

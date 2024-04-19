@@ -7,8 +7,13 @@ dotenv.config();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
+async function getChat (req, res){
+    const idChat = req.params.id
+    const chats = await Chat.find({ _id: { $eq: idChat } });
+    return res.status(200).send(chats);
+}
+
 async function getChats (req, res){
-    console.log("post")
     const idUser = req.body.idUser 
     const chats = await Chat.find({ idUser: { $eq: idUser } });
     return res.status(200).send(chats);
@@ -33,27 +38,40 @@ async function updateChat( req, res ){
     return res.status(200).send('Chat atualizada com sucesso!');
 }
 
-async function getResponse(req, res){
-    const message = req.body.message;
-    const result = await model.generateContent(message);
-    const response = await result.response;
-    const text = response.text();
-    const idchat = req.body.idChat;
-    const chat = await Chat.findById(idchat);
-    
-    if (!chat) {
-        // Se o título não for encontrado, envia um erro 404
-        return res.status(404).send("Chat not found");
+async function getResponse(req, res) {
+    try {
+      const message = req.body.message;
+      const result = await model.generateContent(message);
+      const response = await result.response;
+      const text = response.text();
+      const idChat = req.body.idChat;
+  
+      const chat = await Chat.findById(idChat);
+  
+      if (!chat) {
+        return res.status(404).send('Chat not found');
+      }
+  
+      // Criar um novo objeto para representar a pergunta e resposta
+      const newMessage = {
+        question: message,
+        response: text,
+      };
+  
+      // Adicionar o novo objeto à lista de mensagens
+      chat.messages.push(newMessage);
+  
+      // Salvar as atualizações no banco de dados
+      await chat.save();
+  
+      // Retornar a resposta para o cliente
+      return res.status(201).send(text);
+    } catch (error) {
+      console.error('Erro ao processar resposta:', error);
+      return res.status(500).send('Internal Server Error');
     }
-
-    chat.questions.push(message); // Adiciona a mensagem ao array de perguntas
-    chat.responses.push(text); // Adiciona a resposta gerada ao array de respostas
-
-    // Salvar as atualizações no banco de dados
-    await chat.save();
-    return res.status(201).send(text);
-}
+  }
 
 
 
-export { getChats, createChat, deleteChat, updateChat, getResponse};
+export { getChat, getChats, createChat, deleteChat, updateChat, getResponse};
