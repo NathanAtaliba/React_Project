@@ -7,8 +7,8 @@ const routes = Router();
 //ROUTES Chat
 routes.post('/chats/user', getChats);
 routes.post('/chat/create', createChat);
-routes.delete('/chat/:id', deleteChat);
-routes.put('/chat/:id', updateChat);
+routes.delete('/chat/delete/:id', deleteChat);
+routes.put('/chat/update/:id', updateChat);
 
 routes.post('/send/question', getResponse);
 

@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { NewQuestion } from "./components/question";
 import { NewResponse } from "./components/response";
 import List from './components/chatList';
+
 export function App() {
 
 return ( 
 <>
 <div className="h-screen w-full overflow-y-scroll relative">
 
-  <div className="bg-slate-900 flex flex-col w-1/12 h-screen top-0 left-0 rounded-lg absolute">
-    <List />
+  <div className="bg-slate-900 flex flex-col w-2/12 h-screen top-0 left-0 rounded-lg overflow-y-scroll absolute">
+    <List/>
   </div>
 
-<div className="h-screen w-11/12 flex flex-col absolute top-0 right-0">
+<div className="h-screen w-10/12 flex flex-col absolute top-0 right-0">
   <div className= "bg-slate-900 text-left flex flex-row items-stretch gap-2 top-0 right-0 w-full relative rounded-lg">    
     <div className="basis-1/4 text-white p-5">
       <img src="atendente.png" className="bg-white rounded-full w-20"></img>
@@ -22,7 +22,7 @@ return (
 
   <div className="w-full right-0 h-screen overflow-y-scroll relative">
     <NewQuestion id="1" text="What is your favorite color?" />
-    <NewResponse id="1" text="What is your favorite color?" />
+    <NewResponse id="2" text="What is your favorite color?" />
   </div>
 
   <div className="rounded-lg flex flex-row w-full items-stretch gap-2 bg-transparent right-0 bottom-0 h-20 relative">
