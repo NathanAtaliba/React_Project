@@ -5,14 +5,15 @@ import { AddNewItem } from './addItem';
 
 interface Chat {
     _id: string,
-    name: string
+    name: string,
+    questions: [],
+    responses: []
   }
   
   const List: React.FC = () => {
     const [chats, setChats] = useState<Chat[]>([]);
   
     useEffect(() => {
-      console.log('Buscando chats...');
       fetchChats();  
     }, []);
   
@@ -26,11 +27,8 @@ interface Chat {
     };
 
     const handleAddChat = async () => {
-      try {
-        await fetchChats();  // Busca novamente os chats após adicionar um novo chat
-      } catch (error) {
-        console.error('Erro ao buscar chats após adicionar novo chat:', error);
-      }
+
+        await fetchChats();
     };
     
     const handleRemoveChat = async () => {

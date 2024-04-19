@@ -1,5 +1,5 @@
-import { NewQuestion } from "./components/question";
-import { NewResponse } from "./components/response";
+import Question from "./components/question";
+import Response from "./components/response";
 import List from './components/chatList';
 
 export function App() {
@@ -21,8 +21,8 @@ return (
   </div>
 
   <div className="w-full right-0 h-screen overflow-y-scroll relative">
-    <NewQuestion id="1" text="What is your favorite color?" />
-    <NewResponse id="2" text="What is your favorite color?" />
+    <Question questionText="123"/>
+    <Response responseText="123"/>
   </div>
 
   <div className="rounded-lg flex flex-row w-full items-stretch gap-2 bg-transparent right-0 bottom-0 h-20 relative">
