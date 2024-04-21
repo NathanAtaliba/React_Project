@@ -17,7 +17,8 @@ export const AddNewItem: React.FC<AddNewItemProps> = ({ onAdd }) => {
       try {
         const idUser = '1'
         const response = await axios.post('http://localhost:3000/chat/create', { name: inputValue , idUser});
-        if (response.status === 200) { 
+        console.log(response)
+        if (response.status === 201) { 
           console.log('Novo chat adicionado com sucesso!');
           setInputValue('');
           onAdd(); 

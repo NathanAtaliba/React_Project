@@ -8,7 +8,6 @@ export function App() {
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
   const [inputText, setInputText] = useState('');
   const [chatMessages, setChatMessages] = useState<{ question: string; response: string }[]>([]);
-  const [isUserTurn, setIsUserTurn] = useState<boolean>(true); // Inicia com a vez do usuário
 
   const handleChatSelect = (chatId: string) => {
     setSelectedChatId(chatId);

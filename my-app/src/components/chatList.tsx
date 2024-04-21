@@ -59,7 +59,9 @@ interface Chat {
       <AddNewItem onAdd={handleAddChat} />
 
       {chats.map(chat => (
-        <ChatItem key={chat._id} 
+        
+        <ChatItem 
+        key={chat._id} 
         chat={chat} 
         onRemove={handleRemoveChat}
         onSelect={handleSelectChat}
