@@ -19,4 +19,6 @@
   - EndPoint para buscar um chat com id especifico [OK]
   - EndPoint para buscar um chat com que um usuario especifico [OK]
 
+## INTERFACE:
+
 ![image](https://github.com/NathanAtaliba/React_Project/assets/100451579/475444b4-8e96-4fce-b900-8abf2bbbf240)
